@@ -234,12 +234,14 @@ public:
         }
 
       
-        std::vector<std::vector<unsigned char>> state;
-        for (std::vector<unsigned char>::size_type i = 0; i < data.size(); i += 4)
-        {
-            state.push_back(std::vector<unsigned char>(data.begin() + i, data.begin() + i + 4));
+        std::vector<std::vector<unsigned char>> state(4);
+        // for (std::vector<unsigned char>::size_type i = 0; i < data.size(); i += 4)
+        // {
+        //     state.push_back(std::vector<unsigned char>(data.begin() + i, data.begin() + i + 4));
+        // }
+        for (std::vector<unsigned char>::size_type i = 0; i < data.size(); i++) {
+            state[i % 4].push_back(data[i]);
         }
-
         
         unsigned char num_rounds = (key.size() == 16) ? 10 : (key.size() == 24) ? 12 : 14;
 
@@ -258,10 +260,18 @@ public:
         add_round_key(state, num_rounds);
 
         
+        // std::vector<unsigned char> result;
+        // for (auto &row : state)
+        // {
+        //     result.insert(result.end(), row.begin(), row.end());
+        // }
         std::vector<unsigned char> result;
-        for (auto &row : state)
-        {
-            result.insert(result.end(), row.begin(), row.end());
+        for (size_t i = 0; i < state[0].size(); ++i) {
+            for (auto &row : state) {
+                if (i < row.size()) {
+                result.push_back(row[i]);
+                }
+            }
         }
 
         return result;
@@ -274,10 +284,13 @@ public:
             round_keys = key_expansion_128(key);
         }
 
-        std::vector<std::vector<unsigned char>> state;
-        for (std::vector<unsigned char>::size_type i = 0; i < ciphertext.size(); i += 4)
-        {
-            state.push_back(std::vector<unsigned char>(ciphertext.begin() + i, ciphertext.begin() + i + 4));
+        std::vector<std::vector<unsigned char>> state(4);
+        // for (std::vector<unsigned char>::size_type i = 0; i < ciphertext.size(); i += 4)
+        // {
+        //     state.push_back(std::vector<unsigned char>(ciphertext.begin() + i, ciphertext.begin() + i + 4));
+        // }
+        for (std::vector<unsigned char>::size_type i = 0; i < ciphertext.size(); i++) {
+            state[i % 4].push_back(ciphertext[i]);
         }
 
         unsigned char num_rounds = (key.size() == 16) ? 10 : (key.size() == 24) ? 12 : 14;
@@ -297,10 +310,12 @@ public:
         add_round_key(state, 0);
 
         std::vector<unsigned char> result;
-
-        for (auto &row : state)
-        {
-            result.insert(result.end(), row.begin(), row.end());
+        for (size_t i = 0; i < state[0].size(); ++i) {
+            for (auto &row : state) {
+                if (i < row.size()) {
+                result.push_back(row[i]);
+                }
+            }
         }
 
         return result;

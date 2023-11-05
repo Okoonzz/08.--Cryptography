@@ -67,7 +67,7 @@ public:
         }
 
         // The IV is prepended to the ciphertext for use in decryption
-        std::vector<unsigned char> result = ivInts;
+        std::vector<unsigned char> result;
         for (auto &block : encrypted_blocks)
         {
             result.insert(result.end(), block.begin(), block.end());
@@ -114,9 +114,9 @@ public:
             throw std::invalid_argument("Ciphertext length must be a multiple of 16 bytes for CBC mode.");
         }
 
-        // Extract the IV from the ciphertext
-        iv = std::string(ciphertext.begin(), ciphertext.begin() + 16);
-        ciphertext.erase(ciphertext.begin(), ciphertext.begin() + 16);
+        // // Extract the IV from the ciphertext
+        // iv = std::string(ciphertext.begin(), ciphertext.begin() + 16);
+        // ciphertext.erase(ciphertext.begin(), ciphertext.begin() + 16);
 
         std::string decrypted_blocks;
         std::vector<unsigned char> previous_block(iv.begin(), iv.end());

@@ -34,10 +34,12 @@ CryptoPP::byte* genKey() {
 
 CryptoPP::byte *IVFile(string fn){
     CryptoPP::byte* iv = new CryptoPP::byte[AES::BLOCKSIZE];
-    ifstream file;
-    string tmp;
-    file.open(fn);
-    tmp.assign((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+    ifstream file(fn);
+    if (file.fail()) {
+        std::cerr << "Error: File does not exist.\n";
+        exit(1); 
+    }
+    string tmp((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
     std::memcpy(iv, tmp.data(), AES::DEFAULT_KEYLENGTH);
     return iv;
 }
@@ -45,10 +47,13 @@ CryptoPP::byte *IVFile(string fn){
 
 CryptoPP::byte *keyFile(string fn){
     CryptoPP::byte* key = new CryptoPP::byte[AES::DEFAULT_KEYLENGTH];
-    ifstream file;
-    string tmp;
+    ifstream file(fn);
+    if (file.fail()) {
+        std::cerr << "Error: File does not exist.\n";
+        exit(1); 
+    }
     file.open(fn);
-    tmp.assign((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+    string tmp((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
     std::memcpy(key, tmp.data(), AES::DEFAULT_KEYLENGTH);
     return key;
 }

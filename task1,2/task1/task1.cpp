@@ -124,10 +124,12 @@ string _Enterfilecp(){
 }
 
 string _pl(string fn){
-    ifstream file;
-    string plaintext;
-    file.open(fn);
-    plaintext.assign((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+    ifstream file(fn);
+    if (file.fail()) {
+        std::cerr << "Error: File does not exist.\n";
+        exit(1); 
+    }
+    string plaintext((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
     file.close();
     return plaintext;
 }

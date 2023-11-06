@@ -66,7 +66,8 @@ string _displayFilename(){
         << "3. file3.txt;\n"
         << "4. file4.txt;\n"
         << "5. file5.txt;\n"
-        << "6. file6.txt;\n";
+        << "6. file6.txt;\n"
+        << "7. Other file;\n";
     cin >> case21;
     cin.ignore();
     switch (case21){
@@ -94,6 +95,12 @@ string _displayFilename(){
             filename = "file6.txt";
             break;
     }
+        case 7:{
+            cout << "Enter your file: ";
+            cin >> filename;
+            cin.ignore();
+            break;
+        }
         default:
             cout << "=> Sorry we only have 6 files!!!\n";
             exit(0);

@@ -1,0 +1,9 @@
+D:\Save\Code\LAB3MMH\LAB3\UI\LAB3RSA\bin\Debug\LAB3RSA.exe
+D:\Save\Code\LAB3MMH\LAB3\UI\LAB3RSA\bin\Debug\LAB3RSA.pdb
+D:\Save\Code\LAB3MMH\LAB3\UI\LAB3RSA\obj\Debug\LAB3RSA.csproj.AssemblyReference.cache
+D:\Save\Code\LAB3MMH\LAB3\UI\LAB3RSA\obj\Debug\LAB3RSA.Properties.Resources.resources
+D:\Save\Code\LAB3MMH\LAB3\UI\LAB3RSA\obj\Debug\LAB3RSA.csproj.GenerateResource.cache
+D:\Save\Code\LAB3MMH\LAB3\UI\LAB3RSA\obj\Debug\LAB3RSA.csproj.CoreCompileInputs.cache
+D:\Save\Code\LAB3MMH\LAB3\UI\LAB3RSA\obj\Debug\LAB3RSA.exe
+D:\Save\Code\LAB3MMH\LAB3\UI\LAB3RSA\obj\Debug\LAB3RSA.pdb
+D:\Save\Code\LAB3MMH\LAB3\UI\LAB3RSA\obj\Debug\LAB3RSA.MainFont.resources

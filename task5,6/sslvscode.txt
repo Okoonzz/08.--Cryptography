@@ -2,7 +2,7 @@
 - Check for sure that only one make program in your computer: where make 
 the return should be one path to make.exe
 
-./Configure CC="/mingw64/bin/gcc.exe" CXX="/mingw64/bin/g++.exe" --prefix="C:/Users/NGOCTU/Desktop/Openssl"
+./Configure CC="/mingw64/bin/gcc.exe" CXX="/mingw64/bin/g++.exe" --prefix="C:/Users/Admin/Desktop/Openssl"
 make clean
 make -j 12
 (optinal make test -j 12)

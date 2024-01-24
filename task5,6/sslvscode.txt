@@ -1,0 +1,14 @@
+﻿1. Compile Openssl using mingw64 (run on mingw64 terminal)
+- Check for sure that only one make program in your computer: where make 
+the return should be one path to make.exe
+
+./Configure CC="/mingw64/bin/gcc.exe" CXX="/mingw64/bin/g++.exe" --prefix="C:/Users/NGOCTU/Desktop/Openssl"
+make clean
+make -j 12
+(optinal make test -j 12)
+make install -j 12
+notes:
+--prefix: location for install (copy) after compiling
+-j <number>: the number CPU threads for parallel processing
+
+

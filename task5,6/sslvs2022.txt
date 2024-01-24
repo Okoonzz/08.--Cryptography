@@ -1,0 +1,27 @@
+Build OpenSSL using Visual Studio 2017, 2019, 2021
+See guide: https://github.com/openssl/openssl/blob/master/NOTES-WINDOWS.md
+1. Setup Visual Studio
+https://visualstudio.microsoft.com/vs/older-downloads/
+
+2. Setup Prerequisites
+Perl
+https://github.com/StrawberryPerl/Perl-Dist-Strawberry/releases/download/SP_5380_5361/strawberry-perl-5.38.0.1-64bit.msi
+Netwide Assembler
+https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/win64/nasm-2.16.01-installer-x64.exe
+Check the install: 
+where NASM
+where Perl
+The results should return the path to exe file;
+3.Download and extract openssl
+https://github.com/openssl/openssl/releases/download/openssl-3.1.4/openssl-3.1.4.tar.gz
+Run "x64 Native Tools Command Prompt for VS 2022" in extracting openssl folder and these comands:
+- Setting compiler
+C:\Strawberry\perl\bin\perl.exe Configure VC-WIN64A --prefix="D:\Labs_Crypto\Openssl-VS"
+- Compile and install
+nmake clean
+nmake
+nmake install
+Note: 
+--prefix: the location you would like to copy library after compiling
+Should show full path for perl.exe to ovoid conflict
+C:\Strawberry\perl\bin\perl.exe
